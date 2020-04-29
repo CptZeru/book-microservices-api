@@ -25,7 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 console.log("after all app.use cors * bodyParser");
 //load routes.js
-const routes = require('./routes/routes')(app,fs);
+// const routes = require('./routes/routes')(app,fs);
+app.get('/', (req,res)=>{
+    console.log('entering get / route');
+    res.send('welcome to microservices book api');
+});
 console.log("after loading routes");
 //launch api on port 3000
 const server = app.listen(3000, () => {
