@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 //load routes.js
-const routes = require('./routes/routes.js')(app,fs);
+const routes = require('./routes/routes')(app,fs);
 
 //launch api on port 3001
 const server = app.listen(3001, () => {
