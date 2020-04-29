@@ -32,6 +32,6 @@ app.get('/', (req,res)=>{
 });
 console.log("after loading routes");
 //launch api on port 3000
-const server = app.listen(3000, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
     console.log('listening on port %s...', server.address().port);
 });
