@@ -1,7 +1,6 @@
 const bookRoutes = require('./books')
 
 const appRouter = (app, fs) => {
-    console.log("entering approuter");
     //default route
     app.get('/', (req,res)=>{
         console.log('entering get / route');
@@ -9,7 +8,6 @@ const appRouter = (app, fs) => {
     });
 
     bookRoutes(app,fs);
-    console.log("after bookRoutes");
 };
 
 module.exports = appRouter;
