@@ -6,26 +6,28 @@ const express = require('express');
 const bodyParser = require('body-parser');
 var cors = require('cors');
 
+console.log("after load express, body-parser, cors");
+
 // create instance of express for serving end points
 const app = express();
-
+console.log("after app = express");
 //load filesystem
 const fs = require('fs');
 
 app.use(
     cors({
-        // credentials: true,
-        // origin: true
+        credentials: true,
+        origin: true
     })
 );
 app.options('*', cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-
+console.log("after all app.use cors * bodyParser");
 //load routes.js
 const routes = require('./routes/routes')(app,fs);
-
-//launch api on port 3001
+console.log("after loading routes");
+//launch api on port 3000
 const server = app.listen(3000, () => {
     console.log('listening on port %s...', server.address().port);
 });
