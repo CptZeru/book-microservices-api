@@ -14,8 +14,8 @@ const fs = require('fs');
 
 app.use(
     cors({
-        credentials: true,
-        origin: true
+        // credentials: true,
+        // origin: true
     })
 );
 app.options('*', cors());
