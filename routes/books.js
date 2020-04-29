@@ -51,6 +51,22 @@ const bookRoutes = (app, fs) => {
             res.send(JSON.parse(data));
         });
     });
+
+    // DELETE
+    app.delete('/books/:id', (req, res) => {
+
+        readFile(data => {
+    
+            // add the new user
+            const booksId = req.params["id"];
+            delete data[booksId];
+    
+            writeFile(JSON.stringify(data, null, 2), () => {
+                res.status(200).send(`book with id:${booksId} removed`);
+            });
+        },
+            true);
+    });
 };
 
 module.exports = bookRoutes;
