@@ -1,4 +1,5 @@
 const bookRoutes = require('./books')
+const bookARoutes = require('./booksA')
 
 const appRouter = (app, fs) => {
     //default route
@@ -8,6 +9,7 @@ const appRouter = (app, fs) => {
     });
 
     bookRoutes(app,fs);
+    bookARoutes(app,fs);
 };
 
 module.exports = appRouter;
