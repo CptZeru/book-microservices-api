@@ -42,7 +42,10 @@ const bookARoutes = (app, fs) => {
             console.log(data.data.length);
 
             writeFile(JSON.stringify(data, null,2), () => {
-                res.status(200).send('new book has been added');
+                res.status(200).send({
+                    "status" : 200,
+                    "message" : "new book has been added"
+                });
             });
         },
             true);
@@ -77,7 +80,10 @@ const bookARoutes = (app, fs) => {
             }
     
             writeFile(JSON.stringify(data, null, 2), () => {
-                res.status(200).send(`book with id:${booksId} removed`);
+                res.status(200).send({
+                    "status" : 200,
+                    "message" : "book has been removed"
+                });
             });
         },
             true);

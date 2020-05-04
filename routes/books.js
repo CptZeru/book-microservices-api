@@ -36,7 +36,10 @@ const bookRoutes = (app, fs) => {
             data[newBookId] = req.body;
 
             writeFile(JSON.stringify(data, null, 2), () => {
-                res.status(200).send('new book has been added');
+                res.status(200).send({
+                    "status" : 200,
+                    "message" : "new book has been added"
+                });
             });
         },
             true);
@@ -62,7 +65,10 @@ const bookRoutes = (app, fs) => {
             delete data[booksId];
     
             writeFile(JSON.stringify(data, null, 2), () => {
-                res.status(200).send(`book with id:${booksId} removed`);
+                res.status(200).send({
+                    "status" : 200,
+                    "message" : "book has been removed"
+                });
             });
         },
             true);
